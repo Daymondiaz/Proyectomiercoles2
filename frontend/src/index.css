@@ -1,79 +1,161 @@
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f6fa;
-  margin: 0;
-  padding: 0;
+/* --- ESTILOS DE COMPONENTES DE REACT (Neutralizados) --- */
+
+.App {
+    text-align: center;
 }
 
-h2 {
-  text-align: center;
-  color: #2f3640;
-  margin-top: 40px;
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.App-header {
+    /* Fondo más oscuro para contraste, pero no demasiado llamativo */
+    background-color: #333333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App-link {
+    /* Color de acento sutil (un gris azulado oscuro) */
+    color: #6e88a3;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- ESTILOS GLOBALES Y DE DISEÑO (Elegancia Limpia) --- */
+
+body {
+    /* Tipografía profesional */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Fondo muy claro y limpio */
+    background-color: #fcfcfc;
+    margin: 0;
+    padding: 0;
+}
+
+h2, h3 { /* Aplicamos también a h3 */
+    text-align: center;
+    /* Color de encabezado oscuro y serio */
+    color: #212121;
+    margin-top: 40px;
 }
 
 .container {
-  width: 80%;
-  margin: 0 auto;
-  background-color: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 1200px; /* Limita el ancho máximo para legibilidad en pantallas grandes */
+    margin: 40px auto; /* Añade margen arriba y abajo */
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px; /* Ligeramente menos redondeado para más formalidad */
+    /* Sombra sutil y elegante */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .table-container {
-  overflow-x: auto;
-  margin-top: 20px;
+    overflow-x: auto;
+    margin-top: 20px;
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin-top: 15px;
 }
 
 th, td {
-  padding: 12px 15px;
-  border: 1px solid #ddd;
-  text-align: left;
+    padding: 12px 15px;
+    /* Bordes sutiles para no distraer */
+    border: 1px solid #eeeeee;
+    text-align: left;
 }
 
 th {
-  background-color: #0984e3;
-  color: white;
+    /* Fondo de encabezado de tabla gris oscuro */
+    background-color: #4a4a4a;
+    color: white;
+    /* Sin borde inferior para una línea limpia */
+    border-bottom: 2px solid #333333;
 }
 
 tr:nth-child(even) {
-  background-color: #f1f2f6;
+    /* Filas alternas en gris muy claro */
+    background-color: #f9f9f9;
+}
+
+/* --- ESTILOS DE FORMULARIOS Y BOTONES --- */
+
+.form-row {
+    display: flex; /* Para alinear inputs y botón */
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 input[type="text"], input[type="email"], input[type="password"] {
-  background: #ffffff;
-  color: #000000;
-  padding: 8px;
-  border: 1px solid #000000;
-  border-radius: 5px;
-  margin-right: 10px;
+    background: #ffffff;
+    color: #212121;
+    padding: 10px; /* Más padding para más espacio y elegancia */
+    border: 1px solid #cccccc; /* Borde gris medio, menos duro que el negro */
+    border-radius: 4px;
+    flex-grow: 1; /* Permite que los inputs crezcan */
+    max-width: 250px; /* Limita el ancho máximo del input */
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+    border-color: #6e88a3; /* Acabar de acento sutil al enfocar */
+    outline: none;
 }
 
 button {
-  background-color: #0984e3;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
+    /* Fondo de botón principal ahora es un gris oscuro */
+    background-color: #4a4a4a;
+    color: white;
+    border: none;
+    padding: 10px 16px; /* Más padding para un botón más robusto */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 600; /* Un poco de grosor para el texto del botón */
+    white-space: nowrap; /* Evita que el texto del botón se rompa */
 }
 
 button:hover {
-  background-color: #74b9ff;
+    /* El acento sutil aparece en el hover */
+    background-color: #6e88a3;
 }
 
 button:disabled {
-  background-color: #b2bec3;
-  cursor: not-allowed;
+    background-color: #cccccc;
+    cursor: not-allowed;
 }
 
+/* Estilos para los botones dentro de las celdas de acción */
+.actions {
+    white-space: nowrap;
+}
 .actions button {
-  margin-right: 6px;
+    margin-right: 6px;
+    padding: 6px 10px; /* Botones más pequeños dentro de la tabla */
+    font-weight: normal;
 }
